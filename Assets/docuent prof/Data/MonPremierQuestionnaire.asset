@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef508ce952754b11a39669510a0d9d46, type: 3}
+  m_Name: MonPremierQuestionnaire
+  m_EditorClassIdentifier: 
+  MesQuestions:
+  - Intitule: Quelle couleur de l'aneau centrale?
+    MesReponses:
+    - Intitule: Bleu
+      EstCorrect: 0
+    - Intitule: Rouge
+      EstCorrect: 0
+    - Intitule: noir
+      EstCorrect: 1
+    - Intitule: jaune
+      EstCorrect: 0
+    - Intitule: vert
+      EstCorrect: 0
+  - Intitule: "en les premier jeu Quel Ann\xE9e?"
+    MesReponses:
+    - Intitule: 1893
+      EstCorrect: 0
+    - Intitule: 1924
+      EstCorrect: 0
+    - Intitule: 1894
+      EstCorrect: 0
+    - Intitule: 1896
+      EstCorrect: 1
+    - Intitule: 1900
+      EstCorrect: 0
+  - Intitule: Quelle Ville?
+    MesReponses:
+    - Intitule: Melun
+      EstCorrect: 0
+    - Intitule: Paris
+      EstCorrect: 0
+    - Intitule: "Ath\xE8nes"
+      EstCorrect: 1
+    - Intitule: Berlin
+      EstCorrect: 0
