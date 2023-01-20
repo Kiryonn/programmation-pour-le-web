@@ -31,10 +31,13 @@ namespace DigitalRuby.BowAndArrow
 		public GameObject Arrow;
 
 		[Tooltip("How long (in seconds) before the bow can be fired again.")]
-		public float Cooldown = 0.5f;
+		public float Cooldown = 0.75f;
 
 		[Tooltip("Base speed at which arrows leave the bow. Will be lower if the bow is not pulled back all the way.")]
 		public float FireSpeed = 80.0f;
+
+		[Tooltip("The number of frames needed to draw the arrow")]
+		public int nbDrawFrames = 25;
 
 		[Header("Bow Sounds")]
 		[Tooltip("Sounds for knocking arrows")]
@@ -46,8 +49,6 @@ namespace DigitalRuby.BowAndArrow
 		[Tooltip("Sounds for firing the arrow")]
 		public AudioClip[] FireClips;
 
-		[Tooltip("The number of frames needed to draw the arrow")]
-		public int nbDrawFrames;
 
 		private LineRenderer bowStringLineRenderer1;
 		private LineRenderer bowStringLineRenderer2;
