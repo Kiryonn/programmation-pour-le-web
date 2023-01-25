@@ -52,7 +52,7 @@ public class Bow : MonoBehaviour
 	private AudioSource audioSource;
 	private bool drawingBow;
 	private GameObject currentArrow;
-	private float cooldownTimer;
+	private float cooldownTimer = 0.2f;
 	private float startAngle;
 	private bool drawComplete;
 	private int drawFrame;
@@ -117,6 +117,7 @@ public class Bow : MonoBehaviour
 
 		// reset bow state to idle
 		drawingBow = false;
+		currentArrow = null;
 		RenderBowString(Vector3.zero);
 	}
 
