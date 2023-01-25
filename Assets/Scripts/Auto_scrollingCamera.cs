@@ -32,9 +32,9 @@ public class Auto_scrollingCamera : MonoBehaviour
     {
         
 
-        if (suivre != null) { regarde(); }
+       // if (suivre != null) { regarde(); }
         
-        transform.position = camera;
+      //  transform.position = camera;
 
     }
 
@@ -44,7 +44,7 @@ public class Auto_scrollingCamera : MonoBehaviour
         //if (regardeB) { camera.y = suivre.transform.position.y - cam.orthographicSize*2/4 ; }
   
         if (upZone.asPlayer) { camera.y += 10*5/8f *Time.deltaTime; }
-        else if (downZone.asPlayer) { camera.y =suivre.transform.position.y; }
+        else if (downZone.asPlayer) { camera.y =suivre.transform.position.y * Time.deltaTime; }
 
         Debug.Log(""+upZone.asPlayer +"/" +downZone.asPlayer);
         
@@ -59,7 +59,7 @@ public class Auto_scrollingCamera : MonoBehaviour
     {
         //Vector3 desiredPosition = player.position + camera;
         camera.x += vitesseHorizontale * Time.deltaTime;
-        if (suivre != null) { regarde(); }
+       // if (suivre != null) { regarde(); }
 
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, camera, smoothSpeed);
         transform.position = smoothedPosition;
