@@ -794,7 +794,7 @@ MonoBehaviour:
   MinDrawAnchor: {fileID: 156292}
   MaxDrawAnchor: {fileID: 194402}
   Arrow: {fileID: 134736}
-  Cooldown: 0.5
+  Cooldown: 0.2
   FireSpeed: 80
   nbDrawFrames: 20
   KnockClips: []
