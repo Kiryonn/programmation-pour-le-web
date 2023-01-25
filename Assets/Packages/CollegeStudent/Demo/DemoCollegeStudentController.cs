@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace ClearSky
 {
@@ -42,8 +43,20 @@ namespace ClearSky
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
-            anim.SetBool("isJump", false);
+            if (other.tag == "Map")
+            {
+                anim.SetBool("isJump", false); }
+
+            if(other.tag=="DeathZone") 
+            {
+                Debug.Log("t'est dans la zone");
+                Died();
+            }
+
+            
         }
+
+
         void KickBoard()
         {
             if (Input.GetKeyDown(KeyCode.Alpha4) && isKickboard)
@@ -168,6 +181,21 @@ namespace ClearSky
                 alive = true;
             }
         }
+    
+
+    public void Died()
+    {
+        {
+            isKickboard = false;
+            anim.SetBool("isKickBoard", false);
+            anim.SetTrigger("die");
+            alive = false;
+        }
     }
 
+
+
+
+
+    }
 }
