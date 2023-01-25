@@ -5,10 +5,7 @@ using UnityEngine;
 public class scoreManager : MonoBehaviour
 {
 
-    void Start()
-    {
-        
-    }
+
 
 
 }
