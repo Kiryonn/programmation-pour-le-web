@@ -30,7 +30,7 @@ public class Auto_scrollingCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        camera.x += vitesseHorizontale * Time.deltaTime;
+        
 
         if (suivre != null) { regarde(); }
         
@@ -51,5 +51,18 @@ public class Auto_scrollingCamera : MonoBehaviour
 
     }
 
+
+        public float smoothSpeed = 0.125f; // The speed at which the camera follows
+  
+
+    void LateUpdate()
+    {
+        //Vector3 desiredPosition = player.position + camera;
+        camera.x += vitesseHorizontale * Time.deltaTime;
+        if (suivre != null) { regarde(); }
+
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, camera, smoothSpeed);
+        transform.position = smoothedPosition;
+    }
 
 }
