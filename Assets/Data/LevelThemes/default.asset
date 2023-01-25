@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1011241e28bfc14e9440f4f10fa2f9c, type: 3}
+  m_Name: default
+  m_EditorClassIdentifier: 
+  themeName: default
+  groundTileStart: {fileID: 11400000, guid: 952c4bcc9c062b044823c71bc835aa2b, type: 2}
+  groundTileNormal:
+  - {fileID: 11400000, guid: 622c33323980db54c99a0c8707d9733d, type: 2}
+  - {fileID: 11400000, guid: a32c19dbfb89a9440a9f7ec6c5da8f79, type: 2}
+  - {fileID: 11400000, guid: e147ce1047d71884ab8dc0722e7aecdf, type: 2}
+  - {fileID: 11400000, guid: 4eee919d8d9e65a42a9394f6b503a322, type: 2}
+  groundTileEnd: {fileID: 11400000, guid: 5bddcfab4d78aa84997765ae2cacd99a, type: 2}
+  platerformStart: {fileID: 11400000, guid: ee31f50b688b4c64e9d4d427df50a7d4, type: 2}
+  plateformNormal:
+  - {fileID: 11400000, guid: 4c12a6cf5f35af24b8912fa1fecc666a, type: 2}
+  - {fileID: 11400000, guid: 6e288604dcd02db41806f2a05520cced, type: 2}
+  plateformEnd: {fileID: 11400000, guid: 564544a85e052404bae3db9df43f4a86, type: 2}
+  tinySize: 2
+  mediumSize: 4
+  largeSize: 6
