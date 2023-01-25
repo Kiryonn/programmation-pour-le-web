@@ -15,7 +15,7 @@ public class Auto_scrollingCamera : MonoBehaviour
 
     
 
-    private Vector3 camera;
+    private Vector3 movCam;
 
     //public bool regardeH = false;
     public bool regardeB = false;
@@ -23,7 +23,7 @@ public class Auto_scrollingCamera : MonoBehaviour
 
     private void Start()
     {
-        camera=transform.position;
+        movCam=transform.position;
     }
 
 
@@ -34,17 +34,17 @@ public class Auto_scrollingCamera : MonoBehaviour
 
        // if (suivre != null) { regarde(); }
         
-      //  transform.position = camera;
+      //  transform.position = movCam;
 
     }
 
 
     private void regarde()
     {
-        //if (regardeB) { camera.y = suivre.transform.position.y - cam.orthographicSize*2/4 ; }
+        //if (regardeB) { movCam.y = suivre.transform.position.y - cam.orthographicSize*2/4 ; }
   
-        if (upZone.asPlayer) { camera.y += 10*5/8f *Time.deltaTime; }
-        else if (downZone.asPlayer) { camera.y =suivre.transform.position.y * Time.deltaTime; }
+        if (upZone.asPlayer) { movCam.y += 10*5/8f *Time.deltaTime; }
+        else if (downZone.asPlayer) { movCam.y =suivre.transform.position.y * Time.deltaTime; }
 
         Debug.Log(""+upZone.asPlayer +"/" +downZone.asPlayer);
         
@@ -52,16 +52,16 @@ public class Auto_scrollingCamera : MonoBehaviour
     }
 
 
-        public float smoothSpeed = 0.125f; // The speed at which the camera follows
+        public float smoothSpeed = 0.125f; // The speed at which the movCam follows
   
 
     void LateUpdate()
     {
-        //Vector3 desiredPosition = player.position + camera;
-        camera.x += vitesseHorizontale * Time.deltaTime;
+        //Vector3 desiredPosition = player.position + movCam;
+        movCam.x += vitesseHorizontale * Time.deltaTime;
        // if (suivre != null) { regarde(); }
 
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, camera, smoothSpeed);
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, movCam, smoothSpeed);
         transform.position = smoothedPosition;
     }
 

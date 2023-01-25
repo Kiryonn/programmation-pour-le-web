@@ -10,6 +10,7 @@ namespace ClearSky
         public float movePower = 10f;
         public float KickBoardMovePower = 15f;
         public float jumpPower = 20f; //Set Gravity Scale in Rigidbody2D Component to 5
+        public float maxSpeed = 10f;
 
         private Rigidbody2D rb;
         private Animator anim;
@@ -40,7 +41,20 @@ namespace ClearSky
                 Run();
 
             }
+            if (rb.velocity.magnitude > maxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
         }
+
+       
+        
+
+       /* void FixedUpdate()
+        {
+            
+        }*/
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.tag == "Map")
