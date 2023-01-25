@@ -13,11 +13,11 @@ public class LevelTheme : ScriptableObject
 
 	[Header("Ground")]
 	[Tooltip("The start Tile for the ground")]
-	public Tile groundTileStart;
+	public TileBase groundTileStart;
 	[Tooltip("The regular Tile for the ground")]
-	public List<Tile> groundTileNormal;
+	public TileBase[] groundTileNormal;
 	[Tooltip("The end tile for the ground")]
-	public Tile groundTileEnd;
+	public TileBase groundTileEnd;
 
 	[Header("Plateformes")]
 	[Tooltip("The start Tile for plateforms")]
