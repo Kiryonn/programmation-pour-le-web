@@ -983,7 +983,7 @@ GameObject:
   - component: {fileID: 1394396766807897304}
   - component: {fileID: 1394396766807897311}
   - component: {fileID: 1394396766807897310}
-  - component: {fileID: 1394396766807897309}
+  - component: {fileID: 1381385619298005044}
   m_Layer: 0
   m_Name: Player Variant
   m_TagString: Untagged
@@ -1092,7 +1092,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.4}
   m_EdgeRadius: 0
---- !u!114 &1394396766807897309
+--- !u!114 &1381385619298005044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1101,13 +1101,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1394396766807897308}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1659d8f40431048a82ff8d468a2cb7, type: 3}
+  m_Script: {fileID: 11500000, guid: e54c77974b6ee1c4abbf6bd4c4021453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movePower: 10
-  KickBoardMovePower: 20
-  jumpPower: 15
-  maxSpeed: 10
+  KickBoardMovePower: 15
+  jumpPower: 20
 --- !u!1 &1394396766866005996
 GameObject:
   m_ObjectHideFlags: 0

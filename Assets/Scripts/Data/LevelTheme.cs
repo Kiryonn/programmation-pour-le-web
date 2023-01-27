@@ -21,11 +21,11 @@ public class LevelTheme : ScriptableObject
 
 	[Header("Plateformes")]
 	[Tooltip("The start Tile for plateforms")]
-	public Tile platerformStart;
+	public TileBase platerformStart;
 	[Tooltip("The regular Tiles for plateforms")]
-	public List<Tile> plateformNormal;
+	public TileBase[] plateformNormal;
 	[Tooltip("The end Tile for plateforms")]
-	public Tile plateformEnd;
+	public TileBase plateformEnd;
 	[Tooltip("The size of a tiny plateform (must be > 1)")]
 	public int tinySize;
 	[Tooltip("The size of a normal plateform (must be > 1)")]

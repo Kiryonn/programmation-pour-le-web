@@ -157,9 +157,10 @@ public class Bow : MonoBehaviour
 	{
 		cooldownTimer -= Time.deltaTime;
 		// rotate bow
-		Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		BowShaft.transform.rotation = Quaternion.Euler(0, 0, getAngle(worldPos, BowShaft.transform.position));
-
+		Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		worldPos.y = 0;
+		BowShaft.transform.LookAt(worldPos);
+		
 		// draw bow
 		if (Input.GetMouseButtonDown(0))
 		{

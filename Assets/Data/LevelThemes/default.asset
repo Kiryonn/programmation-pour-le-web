@@ -26,5 +26,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6e288604dcd02db41806f2a05520cced, type: 2}
   plateformEnd: {fileID: 11400000, guid: 564544a85e052404bae3db9df43f4a86, type: 2}
   tinySize: 2
-  mediumSize: 4
-  largeSize: 6
+  mediumSize: 3
+  largeSize: 4
