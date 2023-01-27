@@ -14,6 +14,7 @@ namespace Koboct.Data
 
         private void OnEnable()
         {
+            ScoreReponseQuestion = 0;
             Score = 0;
         }
     }
