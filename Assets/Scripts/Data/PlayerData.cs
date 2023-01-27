@@ -7,14 +7,15 @@ namespace Koboct.Data
     {
         public string Name = "Toto";
 
-        public bool QuestionReponduCorrectement=false;
+        public bool QuestionRepondu=false;
+        public int ScoreReponseQuestion;
 
         public int Score;
 
         private void OnEnable()
         {
+            ScoreReponseQuestion = 0;
             Score = 0;
-            QuestionReponduCorrectement = false;
         }
     }
 }

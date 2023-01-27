@@ -9,8 +9,9 @@ public class CharacterController : MonoBehaviour
 	public float movePower = 10f;
 	public float KickBoardMovePower = 15f;
 	public float jumpPower = 20f; //Set Gravity Scale in Rigidbody2D Component to 5
+    public float maxSpeed = 10f;
 
-	private Rigidbody2D rb;
+    private Rigidbody2D rb;
 	private Animator anim;
 	Vector3 movement;
 	private int direction = 1;
@@ -40,12 +41,23 @@ public class CharacterController : MonoBehaviour
 			Run();
 
 		}
-	}
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
+    }
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		anim.SetBool("isJump", false);
-	}
+
+        anim.SetBool("isJump", false);
+
+        if (other.tag == "DeathZone")
+        {
+            Debug.Log("t'est dans la zone");
+            Died();
+        }
+    }
 	void KickBoard()
 	{
 		if (Input.GetKeyDown(KeyCode.Alpha4) && isKickboard)
@@ -171,4 +183,14 @@ public class CharacterController : MonoBehaviour
 			alive = true;
 		}
 	}
+
+    public void Died()
+    {
+        {
+            isKickboard = false;
+            anim.SetBool("isKickBoard", false);
+            anim.SetTrigger("die");
+            alive = false;
+        }
+    }
 }

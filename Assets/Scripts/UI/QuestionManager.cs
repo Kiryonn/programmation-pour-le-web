@@ -47,7 +47,7 @@ namespace Koboct.UI
                 if (reponse.Key.isOn)
                 {
                     if (reponse.Value.EstCorrect)
-                        PlayerData.Score++;
+                        PlayerData.ScoreReponseQuestion++;
                 }
             }
             CurrentQuestion++;
@@ -63,10 +63,10 @@ namespace Koboct.UI
         {
             if ( PlayerData.Score==MonQuestionnaire.MesQuestions.Count)
             {
-                PlayerData.QuestionReponduCorrectement = true;
+                PlayerData.QuestionRepondu= true;
             }
 
-            PlayerData.Score = 0;
+            PlayerData.Score = 666;
         }
 
         private void QuestionChanged()

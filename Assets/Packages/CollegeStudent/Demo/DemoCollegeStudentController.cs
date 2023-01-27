@@ -57,9 +57,8 @@ namespace ClearSky
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.tag == "Map")
-            {
-                anim.SetBool("isJump", false); }
+            
+                anim.SetBool("isJump", false); 
 
             if(other.tag=="DeathZone") 
             {
