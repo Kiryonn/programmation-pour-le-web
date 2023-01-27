@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   courseTitle: 
   scoTitle: 
-  version: 0
+  version: 1
   enabled: 0
-  zipFilePath: 
+  zipFilePath: D:/git/programmation-pour-le-web/Build/Scorm.zip

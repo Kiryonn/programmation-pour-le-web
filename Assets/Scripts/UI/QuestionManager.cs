@@ -63,7 +63,7 @@ namespace Koboct.UI
         {
             if ( PlayerData.Score==MonQuestionnaire.MesQuestions.Count)
             {
-                PlayerData.QuestionReponduCorrectement = true;
+                PlayerData.QuestionRepondu= true;
             }
 
             PlayerData.Score = 0;
