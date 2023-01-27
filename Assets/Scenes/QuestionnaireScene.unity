@@ -254,6 +254,10 @@ PrefabInstance:
       propertyPath: privateCode
       value: wAm4ZMcxS0WtCvQuqIIbYwgkly4JQmBEykbAuB4OYigg
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 3}
+      propertyPath: IUpgradedAndGotSSL
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae922c7d8b784fc9aac6e923c5a88ab, type: 3}
 --- !u!1 &705507993
