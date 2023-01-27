@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IUpgradedAndGotSSL: 0
-  privateCode: 
-  publicCode: 
+  privateCode: RJkjvPeoHE6Bpcsx8LWH_QzoIwHs-_HUWs7BwcAVToUg
+  publicCode: 63d387458f40bb08f4936599
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b2200954af0240beaee1bf6f1592a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  publicCode: 
+  publicCode: 63d387458f40bb08f4936599
   value: 
   error: 
   state: 0

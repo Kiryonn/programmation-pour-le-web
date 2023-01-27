@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using Koboct.Data;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Koboct.UI
@@ -25,8 +23,8 @@ namespace Koboct.UI
         public Dictionary<Toggle, Reponse> MyDictionnay = new Dictionary<Toggle, Reponse>();
 
 
-        
-        public int Score = 0;
+
+        public PlayerData PlayerData;
         
         // Start is called before the first frame update
         void Start()
@@ -49,7 +47,7 @@ namespace Koboct.UI
                 if (reponse.Key.isOn)
                 {
                     if (reponse.Value.EstCorrect)
-                        Score++;
+                        PlayerData.Score++;
                 }
             }
             CurrentQuestion++;
@@ -61,19 +59,14 @@ namespace Koboct.UI
                 Finish();
         }
 
-        public SceneAsset newScene;
-
         private void Finish()
         {
-            Debug.Log("fini");
+            if ( PlayerData.Score==MonQuestionnaire.MesQuestions.Count)
+            {
+                PlayerData.QuestionReponduCorrectement = true;
+            }
 
-            //throw new System.NotImplementedException();
-
-            AsyncOperation asyncUnload = SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(newScene.name);
-
-            
+            PlayerData.Score = 0;
         }
 
         private void QuestionChanged()

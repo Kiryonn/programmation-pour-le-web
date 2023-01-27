@@ -489,7 +489,7 @@ Transform:
   m_GameObject: {fileID: 134736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 457382}
@@ -610,7 +610,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4.47, y: 0}
+  m_ConnectedAnchor: {x: -4.4700003, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &156292
@@ -797,9 +797,22 @@ MonoBehaviour:
   Cooldown: 0.2
   FireSpeed: 80
   nbDrawFrames: 20
-  KnockClips: []
-  DrawClips: []
-  FireClips: []
+  KnockClips:
+  - {fileID: 8300000, guid: b6e030da41f5537458ad7bb25d66fbba, type: 3}
+  - {fileID: 8300000, guid: deb193f841c7d7443be7dc3b27ba1b63, type: 3}
+  DrawClips:
+  - {fileID: 8300000, guid: 4a6b5bc9be6dfa540ab751ba29a21040, type: 3}
+  - {fileID: 8300000, guid: fb8846cc1972b6144895fc2fbc3d5186, type: 3}
+  - {fileID: 8300000, guid: a0a3eed6c3b718346a2987045ebe9311, type: 3}
+  FireClips:
+  - {fileID: 8300000, guid: 8e84bac971a85b44ea2e31f77057ac44, type: 3}
+  - {fileID: 8300000, guid: b43c203b461a5664995eecbd4e5a3848, type: 3}
+  - {fileID: 8300000, guid: 9b1c8c8fd21a38b40a9daea533a5e0e3, type: 3}
+  - {fileID: 8300000, guid: 59a2c741380da5746b856a3b83b37d7a, type: 3}
+  - {fileID: 8300000, guid: 3ba1b687fbc50fd4f90b44da483a424f, type: 3}
+  - {fileID: 8300000, guid: 2de8ee33711e8134bae0cbc636d26f6d, type: 3}
+  - {fileID: 8300000, guid: 2de8ee33711e8134bae0cbc636d26f6d, type: 3}
+  - {fileID: 8300000, guid: a9b218a25d50dd544805221b89d65e62, type: 3}
 --- !u!1 &167118
 GameObject:
   m_ObjectHideFlags: 0
