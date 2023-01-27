@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
 	// used when holes overflow on the next tilemap
 	private int unfinishedHole;
+	private (Vector3Int position, int size) unfinishedPlateform;
 
 	void Start()
 	{
@@ -89,7 +90,6 @@ public class GameManager : MonoBehaviour
 		Tilemap tm = go.AddComponent<Tilemap>();
 		go.AddComponent<TilemapRenderer>();
 		go.AddComponent<TilemapCollider2D>();
-		go.layer = LayerMask.NameToLayer("Map");
 
 		go.transform.parent = tilemapContainer.transform;
 		go.transform.localScale = Vector3.one * 0.1f;
@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
 			CreateHole(tm, holePos, holeSize);
 		}
 		// add plateforms
+
 
 
 		// visibility
@@ -159,6 +160,10 @@ public class GameManager : MonoBehaviour
 			tm.SetTileFlags(position, TileFlags.None);
 		}
 		tm.SetTile(new Vector3Int(size, 0), theme.groundTileStart);
+	}
+
+	private void FinishPlateform(Tilemap tm){
+
 	}
 
 

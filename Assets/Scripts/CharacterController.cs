@@ -34,7 +34,6 @@ public class CharacterController : MonoBehaviour
 		if (alive)
 		{
 			Hurt();
-			Die();
 			Attack();
 			Jump();
 			KickBoard();
@@ -155,15 +154,12 @@ public class CharacterController : MonoBehaviour
 				rb.AddForce(new Vector2(5f, 1f), ForceMode2D.Impulse);
 		}
 	}
-	void Die()
+	public void Die()
 	{
-		if (Input.GetKeyDown(KeyCode.Alpha3))
-		{
-			isKickboard = false;
-			anim.SetBool("isKickBoard", false);
-			anim.SetTrigger("die");
-			alive = false;
-		}
+		isKickboard = false;
+		anim.SetBool("isKickBoard", false);
+		anim.SetTrigger("die");
+		alive = false;
 	}
 	void Restart()
 	{
