@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: FireClips.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2599135329018244409, guid: ccbf7d893f96929469a0f61f9ab13204, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccbf7d893f96929469a0f61f9ab13204, type: 3}
 --- !u!1001 &8092289070063977596
@@ -178,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 425465671304096048, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.0029325187
+      value: -0.002931565
       objectReference: {fileID: 0}
     - target: {fileID: 1033420095924414538, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -206,11 +210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053518115102101881, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.53
+      value: -14.5
       objectReference: {fileID: 0}
     - target: {fileID: 2053518115102101881, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.8017874
+      value: -5.77
       objectReference: {fileID: 0}
     - target: {fileID: 2053518115102101881, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -258,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4312956712902561404, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: 0.000000014901161
+      value: 0.0000009685755
       objectReference: {fileID: 0}
     - target: {fileID: 4312956712902561404, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.y
@@ -270,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4639437704629287342, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.001819551
+      value: 0.0018200278
       objectReference: {fileID: 0}
     - target: {fileID: 5324967191281825262, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -282,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5912105728319477754, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 0.0008099079
+      value: 0.00081038475
       objectReference: {fileID: 0}
     - target: {fileID: 7273738923672330886, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.x
@@ -294,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8726882388645547943, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -0.0018284321
+      value: -0.0018265247
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521aebf732701414da1c25c63cb8390b, type: 3}
@@ -337,7 +341,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.0890753}
+  m_Offset: {x: 0, y: 2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -348,7 +352,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.3071427}
+  m_Size: {x: 1.6, y: 2}
   m_EdgeRadius: 0
 --- !u!61 &1394396766807897310
 BoxCollider2D:
@@ -363,7 +367,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.006742671, y: 0}
+  m_Offset: {x: 0, y: -0.3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -374,7 +378,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21348533, y: 0.4}
+  m_Size: {x: 0.2, y: 0.4}
   m_EdgeRadius: 0
 --- !u!70 &1394396766807897311
 CapsuleCollider2D:
@@ -390,7 +394,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 2}
-  m_Size: {x: 1, y: 4}
+  m_Size: {x: 1.5, y: 4.5}
   m_Direction: 0
 --- !u!114 &1394396766807897309
 MonoBehaviour:
