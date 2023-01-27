@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
 		DestroyOffScreenTiles();
-		GeneratePlateform();
+		// GenerateTilemap();
 	}
 
 	private void DestroyOffScreenTiles()
@@ -58,57 +58,107 @@ public class GameManager : MonoBehaviour
 	void InitialGeneration()
 	{
 		tilemaps = new Queue<Tilemap>();
-		for (int _ = 0; _ < nbTilemaps; _++)
-		{
-			Tilemap tm = new GameObject().AddComponent<Tilemap>();
-			tm.gameObject.AddComponent<TilemapRenderer>();
-			tm.size = tilemapSize;
-			tm.transform.position = lastTilemap != null ? lastTilemap.transform.right : new Vector3(0, 0, 0);
-			tm.SetTiles(new Vector3Int[] {Vector3Int.zero, new Vector3Int(tilemapSize.x, 0, 0) }, theme.groundTileNormal);
-			int startHole = 1;
-			if (unfinishedHole != 0)
-			{
-				startHole += unfinishedHole + 3;
-				CreateHole(tm, 0, unfinishedHole);
-				unfinishedHole = 0;
-			}
-			bool hasHole = startHole < tilemapSize.x && holeChance < Random.Range(0f, 1f);
-			if (hasHole)
-			{
-				int holePos = Random.Range(startHole, tilemapSize.x);
-				int holeSize = Random.Range(holeMinSize, holeMaxSize + 1);
-				CreateHole(tm, holePos, holeSize);
-			}
-			tilemaps.Enqueue(tm);
-			lastTilemap = tm;
-			tm.RefreshAllTiles();
-			tm.gameObject.SetActive(true);
-			tm.transform.parent = tilemapContainer.transform;
-		}
-	}
+		Tilemap tm = CreateTilemap();
 
-	private void GeneratePlateform()
-	{
-
+		// for (int _ = 0; _ < nbTilemaps; _++)
+		// {
+		// 	tm.transform.position = lastTilemap != null ? lastTilemap.transform.right : new Vector3(0, 0, 0);
+		// 	tilemaps.Enqueue(tm);
+		// }
 	}
 
 	private void GenerateTilemap()
 	{
-		if (tilemaps.Count < 4)
+		if (tilemaps.Count >= 3)
 		{
 			tilemaps.Dequeue();
-			Tilemap tm = new Tilemap();
-			tm.size = new Vector3Int(24, 12);
-			tm.transform.position = lastTilemap.transform.right;
+		}
+		if (tilemaps.Count < 3)
+		{
+			Tilemap tm = CreateTilemap();
+			tm.transform.position = lastTilemap.transform.localPosition;
 			tilemaps.Enqueue(tm);
+			lastTilemap = tm;
 		}
 	}
 
-	private void CreateHole(Tilemap tm, int pos, int size)
+	private Tilemap CreateTilemap()
 	{
-		int overflow = pos + size - tilemapSize.x;
-		tm.SetTiles(new Vector3Int[] { new Vector3Int(pos, 0), new Vector3Int(Mathf.Min(pos + size, tilemapSize.x - 1), 0) }, null);
+		// create components
+		GameObject go = new GameObject();
+		Tilemap tm = go.AddComponent<Tilemap>();
+		go.AddComponent<TilemapRenderer>();
+		go.AddComponent<TilemapCollider2D>();
+		go.layer = LayerMask.NameToLayer("Map");
+
+		go.transform.parent = tilemapContainer.transform;
+		go.transform.localScale = Vector3.one * 0.1f;
+
+		// set tilemap cells
+		tm.size = tilemapSize;
+
+		// create terrain
+		int tileindex = 0;
+		for (int i = 0; i < tilemapSize.x; i++)
+		{
+			tm.SetTile(new Vector3Int(i, 0, 0), theme.groundTileNormal[tileindex]);
+			tileindex++;
+			if (tileindex == theme.groundTileNormal.Length) tileindex = 0;
+		}
+		// create hole
+		int startHole = 1;
+		if (unfinishedHole != 0)
+		{
+			startHole += unfinishedHole + 3;
+			FinishHole(tm, unfinishedHole);
+			unfinishedHole = 0;
+		}
+		bool hasHole = startHole < tilemapSize.x && holeChance > Random.Range(0f, 1f);
+		if (hasHole)
+		{
+			int holePos = Random.Range(startHole, tilemapSize.x);
+			int holeSize = Random.Range(holeMinSize, holeMaxSize + 1);
+			CreateHole(tm, holePos, holeSize);
+		}
+		// add plateforms
+
+
+		// visibility
+		tm.RefreshAllTiles();
+		go.SetActive(true);
+
+		return tm;
+	}
+
+	private void CreatePlateform(Tilemap tm, Vector3Int pos, int size)
+	{
+		// tm.SetTiles();
+	}
+
+	private void CreateHole(Tilemap tm, int start, int size)
+	{
+		Debug.Log((start, size));
+		int overflow = Mathf.Max(0, start + size - tilemapSize.x);
+		Debug.Log(overflow);
+		tm.SetTile(new Vector3Int(start-1, 0), theme.groundTileEnd);
+		for (int i = start; i < start + size - overflow; i++)
+		{
+			Vector3Int position = new Vector3Int(i, 0);
+			tm.SetTile(position, null);
+			tm.SetTileFlags(position, TileFlags.None);
+		}
 		if (overflow > 0) unfinishedHole = overflow;
+		else tm.SetTile(new Vector3Int(start + size, 0), theme.groundTileStart);
+	}
+
+	private void FinishHole(Tilemap tm, int size) {
+		for (int i = 0; i < size; i++)
+		{
+			Vector3Int position = new Vector3Int(i, 0);
+			tm.SetTile(position, null);
+			tm.SetTileFlags(position, TileFlags.None);
+		}
+		tm.SetTile(new Vector3Int(size, 0), theme.groundTileStart);
 	}
 
 

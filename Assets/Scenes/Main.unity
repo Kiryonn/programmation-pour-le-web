@@ -158,9 +158,9 @@ MonoBehaviour:
   tilemapSize: {x: 24, y: 12, z: 0}
   scrollSpeed: 1
   themeChangeCooldown: 60
-  holeMinSize: 3
-  holeMaxSize: 6
-  holeChance: 0.3
+  holeMinSize: 2
+  holeMaxSize: 4
+  holeChance: 1
 --- !u!4 &334201625
 Transform:
   m_ObjectHideFlags: 0
@@ -253,11 +253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1394396766807897306, guid: ad9158fce46eee44894d446c2d11d113, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.545872
+      value: 3.58
       objectReference: {fileID: 0}
     - target: {fileID: 1394396766807897306, guid: ad9158fce46eee44894d446c2d11d113, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.8017874
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 1394396766807897306, guid: ad9158fce46eee44894d446c2d11d113, type: 3}
       propertyPath: m_LocalPosition.z
@@ -323,7 +323,7 @@ Transform:
   m_GameObject: {fileID: 972585813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 468354535}
@@ -337,7 +337,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972585813}
   m_Enabled: 1
-  m_CellSize: {x: 0.16, y: 0.16, z: 0.16}
+  m_CellSize: {x: 0.16, y: 0.16, z: 1}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
@@ -418,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501388754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 17, y: 8, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
