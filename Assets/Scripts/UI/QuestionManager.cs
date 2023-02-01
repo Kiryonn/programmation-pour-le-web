@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Koboct.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Koboct.UI
@@ -10,11 +11,15 @@ namespace Koboct.UI
     {
         public Questionnaire MonQuestionnaire;
 
+        public TMP_Text Titre;
+
         public TMP_Text TitreQuestion;
 
         public List<Toggle> MesReponses;
 
         public Button Suivant;
+
+        public Button Game;
 
         public ToggleGroup MyGroup;
 
@@ -63,10 +68,34 @@ namespace Koboct.UI
         {
             if ( PlayerData.Score==MonQuestionnaire.MesQuestions.Count)
             {
-                PlayerData.QuestionRepondu= true;
+                TitreQuestion.text = "Bravo pour le sans faute a ce questionnaire. Bon Jeu";
+            }
+            else
+            {
+                TitreQuestion.text = "Merci d'avoir repondu a ce questionnaire. Bon Jeu";
             }
 
-            PlayerData.Score = 666;
+            PlayerData.QuestionRepondu = true;
+
+            Game.transform.gameObject.SetActive(true);
+            Suivant.transform.gameObject.SetActive(false);
+
+            for(int i = 0; i < MesReponses.Count; i++)
+            {
+                MesReponses[i].gameObject.SetActive(false);
+
+            }
+
+            
+
+
+            //PlayerData.Score = 666;
+        }
+
+        public void FinishButton()
+        {
+            PlayerData.Score = 0;
+           // SceneManager.LoadScene("niv", LoadSceneMode.Additive);
         }
 
         private void QuestionChanged()
@@ -95,6 +124,35 @@ namespace Koboct.UI
         {
             Suivant.interactable = MyGroup.AnyTogglesOn();
         }
+
+        
+        ScoreManager scoreManager;
+        public List<dreamloLeaderBoard.Score> scoreList;
+
+        public void leaderBoard() 
+        {
+            scoreList = scoreManager.DisplayScoreList();
+
+            Game.gameObject.GetComponentInChildren<TMP_Text>().text = "retenter";
+
+
+            for(int i = 0; i < 5; i++)
+            { 
+                if (i < MesReponses.Count)
+                {
+                    MesReponses[i].gameObject.SetActive(true);
+                    MesReponses[i].gameObject.GetComponentInChildren<TMP_Text>().text = scoreList[i].playerName + "  " + scoreList[i].score;
+                    //MesReponses[i].gameObject.GetComponentInChildren<Image>().gameObject.SetActive(false);
+                    MesReponses[i].transform.Find("Background").gameObject.SetActive(false);
+                }
+                else
+                    MesReponses[i].gameObject.SetActive(false);}
+
+            TitreQuestion.text = "votre resultat est "+ PlayerData.Name+ "  "+PlayerData.Score;
+            Titre.text = "LeaderBoard";
+
+          }
+        
 
      
     }

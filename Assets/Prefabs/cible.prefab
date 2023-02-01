@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2869208372465666218}
   - component: {fileID: 6956328636465442462}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bleu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1763106187328505161}
   - component: {fileID: 4869597989038158932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rouge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,8 @@ GameObject:
   m_Component:
   - component: {fileID: 305674911011648045}
   - component: {fileID: 8915901894798898778}
-  m_Layer: 0
+  - component: {fileID: 94853773}
+  m_Layer: 9
   m_Name: cible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,6 +220,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.5
+--- !u!114 &94853773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4651823147953950986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cfdebf4029c15448e48001baddbf78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sono: {fileID: 8870222025593982325, guid: 3dfb2fa41401d7344aafae6ce6f9331a, type: 3}
+  MyPlayerData: {fileID: 11400000, guid: b6147c9c7e7dc294ba4616af1d4b8b1c, type: 2}
 --- !u!1 &8351891214190025720
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5447990055620406547}
   - component: {fileID: 698089721473735026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: jaune
   m_TagString: Untagged
   m_Icon: {fileID: 0}

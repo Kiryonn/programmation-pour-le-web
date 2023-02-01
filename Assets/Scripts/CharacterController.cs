@@ -20,6 +20,9 @@ public class CharacterController : MonoBehaviour
 	private bool isKickboard = false;
 
 	private bool isShooting = false;
+	public bool restart=false;
+
+    public Auto_scrollingCamera camera;
 
 
 	// Start is called before the first frame update
@@ -34,7 +37,7 @@ public class CharacterController : MonoBehaviour
 		Restart();
 		if (alive)
 		{
-			Hurt();
+			//Hurt();
 			Attack();
 			Jump();
 			KickBoard();
@@ -175,13 +178,16 @@ public class CharacterController : MonoBehaviour
 	}
 	void Restart()
 	{
-		if (Input.GetKeyDown(KeyCode.Alpha0))
+		
+		if (restart)
 		{
 			isKickboard = false;
 			anim.SetBool("isKickBoard", false);
 			anim.SetTrigger("idle");
 			alive = true;
-		}
+            restart = false;
+
+        }
 	}
 
     public void Died()
@@ -191,6 +197,8 @@ public class CharacterController : MonoBehaviour
             anim.SetBool("isKickBoard", false);
             anim.SetTrigger("die");
             alive = false;
+			camera.death();
+
         }
     }
 }

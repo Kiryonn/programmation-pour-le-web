@@ -1,3 +1,4 @@
+using Koboct.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,8 @@ public class Auto_scrollingCamera : MonoBehaviour
     public GameObject suivre;
     public Camera cam;
 
-    public PlayerZone upZone;
-    public PlayerZone downZone;
+    public CharacterController characterController;
+    public QuestionManager QuestionManager;
 
     
 
@@ -19,6 +20,8 @@ public class Auto_scrollingCamera : MonoBehaviour
 
     //public bool regardeH = false;
     public bool regardeB = false;
+
+    bool end;
 
 
     private void Start()
@@ -28,28 +31,10 @@ public class Auto_scrollingCamera : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
-        
-
-       // if (suivre != null) { regarde(); }
-        
-      //  transform.position = movCam;
-
-    }
 
 
-    private void regarde()
-    {
-        //if (regardeB) { movCam.y = suivre.transform.position.y - cam.orthographicSize*2/4 ; }
-  
-        if (upZone.asPlayer) { movCam.y += 10*5/8f *Time.deltaTime; }
-        else if (downZone.asPlayer) { movCam.y =suivre.transform.position.y * Time.deltaTime; }
+    
 
-        Debug.Log(""+upZone.asPlayer +"/" +downZone.asPlayer);
-        
-
-    }
 
 
         public float smoothSpeed = 0.125f; // The speed at which the movCam follows
@@ -63,6 +48,25 @@ public class Auto_scrollingCamera : MonoBehaviour
 
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, movCam, smoothSpeed);
         transform.position = smoothedPosition;
+    }
+
+    public void go() { vitesseHorizontale = 6; }
+
+    public void death() 
+    {
+    end= true;
+    vitesseHorizontale = 0;
+    QuestionManager.gameObject.SetActive(true);
+
+    }
+
+    public void Reset()
+    {
+        characterController.restart = true;
+        transform.position = new Vector3(0, 0, -10);
+        characterController.gameObject.transform.position = new Vector3(-1, -6, 0);
+        
+
     }
 
 }

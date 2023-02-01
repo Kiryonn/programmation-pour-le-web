@@ -13,6 +13,17 @@ public class Target : MonoBehaviour
 
 
 
+    public PlayerData MyPlayerData;
+
+
+    public void addScore()
+    { MyPlayerData.Score++; }
+
+
+
+
+
+
     public void init(PlayerData data)
     {
         Mydata = data;
@@ -25,7 +36,7 @@ public class Target : MonoBehaviour
         //target.Stop();
         GameObject go = Instantiate(sono,transform.position,transform.rotation);
 
-        
+        addScore();
         Debug.Log(collision.name);
         //Mydata.Score += 1;
 

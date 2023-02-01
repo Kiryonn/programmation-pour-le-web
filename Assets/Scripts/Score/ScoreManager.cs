@@ -5,12 +5,18 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-
     dreamloLeaderBoard dl;
-    [SerializeField] private List<dreamloLeaderBoard.Score> scoreList;
+    [SerializeField] private List<dreamloLeaderBoard.Score> scoreList=null;
     public PlayerData MyPlayerData;
-    
-    
+
+
+
+    private void Reset()
+    {
+        Start();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +43,18 @@ public class ScoreManager : MonoBehaviour
 
     private void DisplayScore()
     {
+
         foreach (var score in scoreList)
         {
            Debug.Log(score.playerName);
         }
+
+    }
+
+    public List<dreamloLeaderBoard.Score> DisplayScoreList()
+    {
+
+        return scoreList;
+
     }
 }
