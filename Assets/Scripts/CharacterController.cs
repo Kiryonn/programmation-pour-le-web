@@ -19,10 +19,10 @@ public class CharacterController : MonoBehaviour
 	private bool alive = true;
 	private bool isKickboard = false;
 
-	private bool isShooting = false;
+	//private bool isShooting = false;
 	public bool restart=false;
 
-    public Auto_scrollingCamera camera;
+    public Auto_scrollingCamera scrolCamera;
 
 
 	// Start is called before the first frame update
@@ -192,13 +192,13 @@ public class CharacterController : MonoBehaviour
 
     public void Died()
     {
-        {
+        
             isKickboard = false;
             anim.SetBool("isKickBoard", false);
             anim.SetTrigger("die");
             alive = false;
-			camera.death();
+			scrolCamera.death();
 
-        }
+        
     }
 }

@@ -6,11 +6,13 @@ using System.Linq;
 using System.Xml;
 using UnityEditor;
 using UnityEditor.Build;
+using UnityEditor.Build.Reporting;
 using UnityEngine;
 
 namespace Scorm {
 
-    public class ScormPostprocessor : IPostprocessBuild {
+    public class ScormPostprocessor : IPostprocessBuildWithReport
+    {
 
         public int callbackOrder {
             get { return 1; }
@@ -141,6 +143,10 @@ namespace Scorm {
             return (attr & FileAttributes.Directory) == FileAttributes.Directory;
         }
 
+        public void OnPostprocessBuild(BuildReport report)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

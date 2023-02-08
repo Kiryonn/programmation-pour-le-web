@@ -13,6 +13,9 @@ public class Auto_scrollingCamera : MonoBehaviour
 
     public CharacterController characterController;
     public QuestionManager QuestionManager;
+    public GameObject question;
+
+    public GameObject[] cible;
 
     
 
@@ -21,7 +24,7 @@ public class Auto_scrollingCamera : MonoBehaviour
     //public bool regardeH = false;
     public bool regardeB = false;
 
-    bool end;
+ 
 
 
     private void Start()
@@ -50,13 +53,16 @@ public class Auto_scrollingCamera : MonoBehaviour
         transform.position = smoothedPosition;
     }
 
-    public void go() { vitesseHorizontale = 6; }
+    public void go() { Reset(); vitesseHorizontale = 6; }
 
     public void death() 
     {
-    end= true;
+    
     vitesseHorizontale = 0;
-    QuestionManager.gameObject.SetActive(true);
+
+        question.SetActive(true);
+        QuestionManager.gameObject.SetActive(true);
+        QuestionManager.information();
 
     }
 
@@ -66,6 +72,18 @@ public class Auto_scrollingCamera : MonoBehaviour
         transform.position = new Vector3(0, 0, -10);
         characterController.gameObject.transform.position = new Vector3(-1, -6, 0);
         
+
+                //Vector3 desiredPosition = player.position + movCam;
+        movCam.x = vitesseHorizontale * Time.deltaTime;
+       // if (suivre != null) { regarde(); }
+
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, movCam, smoothSpeed);
+        transform.position = smoothedPosition;
+
+        foreach( GameObject x in cible)
+        {
+            x.SetActive(true);
+        }
 
     }
 

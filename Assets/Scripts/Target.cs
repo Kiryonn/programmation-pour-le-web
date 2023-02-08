@@ -43,7 +43,8 @@ public class Target : MonoBehaviour
         Destroy(collision.gameObject);
 
         Destroy(go, 2);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
         
     }
 

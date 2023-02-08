@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
-{
+{/*
 	[Header("Levels")]
 	[Tooltip("The size of the buffer for Tilemaps")]
 	public int nbTilemaps = 3;
@@ -62,5 +62,5 @@ public class MapGenerator : MonoBehaviour
 			timeSinceLastThemeSwap = 0;
 			currentTheme = new Color(Random.Range(50, 255), Random.Range(50, 255), Random.Range(50, 255));
 		}
-	}
+	}*/
 }

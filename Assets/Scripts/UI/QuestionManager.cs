@@ -9,6 +9,8 @@ namespace Koboct.UI
 {
     public class QuestionManager : MonoBehaviour
     {
+        public bool nopQuestionaire;
+
         public Questionnaire MonQuestionnaire;
 
         public TMP_Text Titre;
@@ -27,22 +29,32 @@ namespace Koboct.UI
 
         public Dictionary<Toggle, Reponse> MyDictionnay = new Dictionary<Toggle, Reponse>();
 
+        public ScoreManager score;
+
 
 
         public PlayerData PlayerData;
-        
+
         // Start is called before the first frame update
         void Start()
         {
-            foreach (var toggle in MesReponses)
+            if (nopQuestionaire)
             {
-                MyDictionnay.Add(toggle,null);
-                toggle.onValueChanged.AddListener(ToggleChanged);
+                Finish();
+            }
+            else
+            {
+                foreach (var toggle in MesReponses)
+                {
+                    MyDictionnay.Add(toggle, null);
+                    toggle.onValueChanged.AddListener(ToggleChanged);
+                }
+
+
+                QuestionChanged();
+                Suivant.onClick.AddListener(NextQuestion);
             }
 
-            QuestionChanged();
-            Suivant.onClick.AddListener(NextQuestion);
-            
         }
 
         private void NextQuestion()
@@ -64,15 +76,30 @@ namespace Koboct.UI
                 Finish();
         }
 
+        public void information()
+        {
+            Debug.Log("j'en crée un nouveau");
+
+            score.appel();
+            Debug.Log(score.DisplayScoreList());
+            TitreQuestion.text = "votre resultat est " + PlayerData.Name + " avec " + PlayerData.Score;
+            Titre.text = "LeaderBoard";
+
+            for (int i = 0; i < 5; i++)
+            {
+                MesReponses[i].gameObject.SetActive(false);
+            }
+        }
+
         private void Finish()
         {
-            if ( PlayerData.Score==MonQuestionnaire.MesQuestions.Count)
+            if (PlayerData.Score == MonQuestionnaire.MesQuestions.Count)
             {
-                TitreQuestion.text = "Bravo pour le sans faute a ce questionnaire. Bon Jeu";
+                TitreQuestion.text = "Bravo pour le sans faute à ce questionnaire. Bon Jeu";
             }
             else
             {
-                TitreQuestion.text = "Merci d'avoir repondu a ce questionnaire. Bon Jeu";
+                TitreQuestion.text = "Merci d'avoir repondu à ce questionnaire. Bon Jeu";
             }
 
             PlayerData.QuestionRepondu = true;
@@ -80,13 +107,13 @@ namespace Koboct.UI
             Game.transform.gameObject.SetActive(true);
             Suivant.transform.gameObject.SetActive(false);
 
-            for(int i = 0; i < MesReponses.Count; i++)
+            for (int i = 0; i < MesReponses.Count; i++)
             {
                 MesReponses[i].gameObject.SetActive(false);
 
             }
 
-            
+
 
 
             //PlayerData.Score = 666;
@@ -95,7 +122,7 @@ namespace Koboct.UI
         public void FinishButton()
         {
             PlayerData.Score = 0;
-           // SceneManager.LoadScene("niv", LoadSceneMode.Additive);
+            // SceneManager.LoadScene("niv", LoadSceneMode.Additive);
         }
 
         private void QuestionChanged()
@@ -107,13 +134,13 @@ namespace Koboct.UI
             for (int i = 0; i < MesReponses.Count; i++)
             {
                 MesReponses[i].isOn = false;
-                
+
                 if (i < question.MesReponses.Count)
                 {
                     MesReponses[i].gameObject.SetActive(true);
                     MesReponses[i].gameObject.GetComponentInChildren<TMP_Text>().text =
                         question.MesReponses[i].Intitule;
-                    MyDictionnay[MesReponses[i]] =  question.MesReponses[i];
+                    MyDictionnay[MesReponses[i]] = question.MesReponses[i];
                 }
                 else
                     MesReponses[i].gameObject.SetActive(false);
@@ -125,37 +152,37 @@ namespace Koboct.UI
             Suivant.interactable = MyGroup.AnyTogglesOn();
         }
 
-        
-        ScoreManager scoreManager;
+
         public List<dreamloLeaderBoard.Score> scoreList;
 
-        public void leaderBoard() 
+        public void leaderBoard(List<dreamloLeaderBoard.Score> list)
         {
-            scoreList = scoreManager.DisplayScoreList();
+            scoreList = list;
 
             Game.gameObject.GetComponentInChildren<TMP_Text>().text = "retenter";
 
 
-            for(int i = 0; i < 5; i++)
-            { 
-                if (i < MesReponses.Count)
+            for (int i = 0; i <= 5; i++)
+            {
+                if (i < scoreList.Count)
                 {
                     MesReponses[i].gameObject.SetActive(true);
-                    MesReponses[i].gameObject.GetComponentInChildren<TMP_Text>().text = scoreList[i].playerName + "  " + scoreList[i].score;
+                    MesReponses[i].gameObject.GetComponentInChildren<TMP_Text>().text = scoreList[i].playerName + " avec " + scoreList[i].score;
                     //MesReponses[i].gameObject.GetComponentInChildren<Image>().gameObject.SetActive(false);
                     MesReponses[i].transform.Find("Background").gameObject.SetActive(false);
                 }
                 else
-                    MesReponses[i].gameObject.SetActive(false);}
+                { MesReponses[i].gameObject.SetActive(false); }
+            }
 
-            TitreQuestion.text = "votre resultat est "+ PlayerData.Name+ "  "+PlayerData.Score;
+            TitreQuestion.text = "votre resultat est " + PlayerData.Name + " avec " + PlayerData.Score;
             Titre.text = "LeaderBoard";
 
-          }
-        
+        }
 
-     
+
+
     }
+}
 
     
-}
