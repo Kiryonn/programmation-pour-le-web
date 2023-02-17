@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ed1e4ba073b05d45ae56f91332a8f41, type: 3}
   m_Name: ScormPublishSettings
   m_EditorClassIdentifier: 
-  courseTitle: 
-  scoTitle: 
+  courseTitle: Jo2024
+  scoTitle: JeuxConcour
   version: 1
-  enabled: 0
-  zipFilePath: D:/git/programmation-pour-le-web/Build/Scorm.zip
+  enabled: 1
+  zipFilePath: D:/git/programmation-pour-le-web/Zip/Scorm.zip

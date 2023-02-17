@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dd686f28be4fa5a755d8ba7b4a6528, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  Name: John
-  QuestionReponduCorrectement: 0
-  Score: 10000
+  Name: Dummy learner name
+  QuestionRepondu: 1
+  ScoreReponseQuestion: 0
+  Score: 7

@@ -31,6 +31,8 @@ namespace Koboct.UI
 
         public ScoreManager score;
 
+        
+
 
 
         public PlayerData PlayerData;
@@ -38,7 +40,8 @@ namespace Koboct.UI
         // Start is called before the first frame update
         void Start()
         {
-            if (nopQuestionaire)
+
+            if (nopQuestionaire || PlayerData.QuestionRepondu )
             {
                 Finish();
             }
@@ -162,7 +165,7 @@ namespace Koboct.UI
             Game.gameObject.GetComponentInChildren<TMP_Text>().text = "retenter";
 
 
-            for (int i = 0; i <= 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (i < scoreList.Count)
                 {

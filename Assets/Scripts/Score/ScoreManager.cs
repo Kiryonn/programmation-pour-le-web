@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private List<dreamloLeaderBoard.Score> scoreList=null;
     public PlayerData MyPlayerData;
     public QuestionManager affichage;
+    public ScormScore scormScore;
 
 
 
@@ -31,6 +32,11 @@ public class ScoreManager : MonoBehaviour
         dl.AddScore(MyPlayerData.Name, MyPlayerData.Score);
 
         dl.GetScores();
+        scormScore.transform.gameObject.SetActive(false);
+        scormScore =new ScormScore();
+
+        scormScore.transform.gameObject.SetActive(true);
+
         StartCoroutine(CheckScrore());
     }
 

@@ -9415,6 +9415,7 @@ GameObject:
   - component: {fileID: 1068417598}
   - component: {fileID: 1068417600}
   - component: {fileID: 1068417599}
+  - component: {fileID: 1068417601}
   m_Layer: 0
   m_Name: scom
   m_TagString: Untagged
@@ -9460,6 +9461,19 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53497e38db6bfd44ca9adb8a8e242c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mydata: {fileID: 11400000, guid: b6147c9c7e7dc294ba4616af1d4b8b1c, type: 2}
+--- !u!114 &1068417601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068417597}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e646099adfb656947a9d471dfa5feff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Mydata: {fileID: 11400000, guid: b6147c9c7e7dc294ba4616af1d4b8b1c, type: 2}
@@ -10160,6 +10174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyPlayerData: {fileID: 11400000, guid: b6147c9c7e7dc294ba4616af1d4b8b1c, type: 2}
   affichage: {fileID: 1868014334}
+  scormScore: {fileID: 1068417601}
 --- !u!1 &1878693177
 GameObject:
   m_ObjectHideFlags: 0
